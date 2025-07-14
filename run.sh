@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set pipefail -eou
+set -eou pipefail
 
 mkdir -p sha1-zkvm/logs
 
