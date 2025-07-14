@@ -41,9 +41,7 @@ fn main() {
         std::process::exit(1);
     }
 
-    // let blob_bytes = include_bytes!("../../../blobs/guest-program.bin");
-    // let calldata = blob_bytes.to_vec();
-    let calldata = std::fs::read(&args.input).unwrap();
+    let calldata: Vec<u8> = std::fs::read(&args.input).unwrap();
 
     // Setup the prover client.
     let client = ProverClient::from_env();
