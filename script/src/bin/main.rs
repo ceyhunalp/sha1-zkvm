@@ -23,6 +23,9 @@ struct Args {
 
     #[arg(long, default_value = "10")]
     runs: u32,
+
+    #[arg(long)]
+    input: String,
 }
 
 fn main() {
@@ -38,8 +41,9 @@ fn main() {
         std::process::exit(1);
     }
 
-    let blob_bytes = include_bytes!("../../../blobs/guest-program.bin");
-    let calldata = blob_bytes.to_vec();
+    // let blob_bytes = include_bytes!("../../../blobs/guest-program.bin");
+    // let calldata = blob_bytes.to_vec();
+    let calldata = std::fs::read(&args.input).unwrap();
 
     // Setup the prover client.
     let client = ProverClient::from_env();
@@ -105,5 +109,6 @@ fn main() {
         }
         let avg_time = total_time / (args.runs as f64);
         println!("Average time: {avg_time}");
+        println!("Total time: {total_time}");
     }
 }
