@@ -2,7 +2,7 @@
 
 set pipefail -eou
 
-#mkdir -p sha1-zkvm/logs
+mkdir -p sha1-zkvm/logs
 
 ./run-sha1-zkvm.sh 1k -c
 ./run-sha1-zkvm.sh 10k -c

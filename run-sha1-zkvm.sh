@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set pipefail -eou
+set pipefail -eou
 
 if [ $# -lt 2 ]; then
 	echo "Usage: $0 <size> <-c|-g>"
